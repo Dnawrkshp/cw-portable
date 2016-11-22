@@ -169,9 +169,6 @@ namespace CWPortable.PowerPC
                     case ArgType.CONDITIONREGISTER:                     // Condition Register (3 bits, "cr0,cr1,...,cr7" or 5 bits, "0,4,8,...,28")
                         r |= ParseValue(args[x + 1], Args[y].Length) << Shifts[Args[y].Index];
                         break;
-                    //case ArgType.CONDITIONREGISTER3:                    // Condition Register (3 bits, "cr0,cr1,...,cr7")
-                    //    r |= uint.Parse(args[x + 1][args[x+1].Length-1].ToString()) << Shifts[Args[y].Index];
-                    //    break;
                     case ArgType.SPECIALREGISTER:                       // Special Register (5 bits, "xer,ctr,lr"
                         r |= ParseValue(args[x + 1], Args[y].Length) << Shifts[Args[y].Index];
                         break;
@@ -187,29 +184,6 @@ namespace CWPortable.PowerPC
                     case ArgType.BRANCHIMMEDIATERELATIVE:
                         r |= (ParseValue(args[x + 1], Args[y].Length, address) >> 2) << Shifts[Args[y].Index];
                         break;
-                        /*
-                    case ArgType.IMMEDIATE5:                            // 5 Bit Immediate
-                        r |= (ParseValue(args[x + 1], Args[y].Length) & 0x1F) << Shifts[Args[y].Index];
-                        break;
-                    case ArgType.IMMEDIATE8:                            // 8 Bit Immediate
-                        r |= (ParseValue(args[x + 1], Args[y].Length) & 0xFF) << Shifts[Args[y].Index];
-                        break;
-                    case ArgType.IMMEDIATE14:                           // 14 Bit Immediate (for branching)
-                        r |= ((ParseValue(args[x + 1], Args[y].Length) >> 2) & 0x3FFF) << Shifts[Args[y].Index];
-                        break;
-                    case ArgType.RELATIVEIMMEDIATE14:                   // 14 Bit Relative Immediate (for branching)
-                        r |= (((ParseValue(args[x + 1], Args[y].Length) - address) >> 2) & 0x3FFF) << Shifts[Args[y].Index];
-                        break;
-                    case ArgType.IMMEDIATE16:                           // 16 Bit Immediate
-                        r |= (ParseValue(args[x + 1], Args[y].Length) & 0xFFFF) << Shifts[Args[y].Index];
-                        break;
-                    case ArgType.IMMEDIATE24:                           // 24 Bit Immediate (for branching)
-                        r |= ((ParseValue(args[x + 1], Args[y].Length) >> 2) & 0xFFFFFF) << Shifts[Args[y].Index];
-                        break;
-                    case ArgType.RELATIVEIMMEDIATE24:                   // 24 Bit Relative Immediate (for branching)
-                        r |= (((ParseValue(args[x + 1], Args[y].Length) - address) >> 2) & 0xFFFFFF) << Shifts[Args[y].Index];
-                        break;
-                        */
                 }
             }
 
