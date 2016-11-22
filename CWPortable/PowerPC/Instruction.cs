@@ -145,7 +145,7 @@ namespace CWPortable.PowerPC
             return (ret-offset) & BitMasks[bitLength];
         }
 
-        public List<PPCError> Assemble(uint address, string line, out string ppc)
+        public List<PPCError> Assemble(uint address, string line, out PPCResult ppc)
         {
             int x, y;
             uint r = Opcode;
@@ -187,7 +187,7 @@ namespace CWPortable.PowerPC
                 }
             }
 
-            ppc = r.ToString("X8");
+            ppc = new PPCResult(address, r);
             return _errors;
         }
     }

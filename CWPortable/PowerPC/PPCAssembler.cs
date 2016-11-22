@@ -40,17 +40,16 @@ namespace CWPortable.PowerPC
 
         }
 
-        public List<PPCError> Assemble(string text, out string ppc)
+        public List<PPCError> Assemble(string text, out List<PPCResult> ppc)
         {
+            ppc = new List<PowerPC.PPCResult>();
             List<PPCError> errors = new List<PowerPC.PPCError>();
-            string r;
+            PPCResult r;
             string[] lines = text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
             string[] subLines;
             uint address = 0;
             int x, y;
             bool found = false;
-
-            ppc = "";
             
             // Preprocess all the extensions
             for (x = 0; x < lines.Length; x++)
@@ -89,7 +88,7 @@ namespace CWPortable.PowerPC
                     found = false;
                     if (subLines[y].StartsWith("hexcode "))
                     {
-                        ppc += address.ToString("X8") + " " + "\r\n";
+                        ppc.Add(new PPCResult(address, subLines[y].Split(' ')[1]));
                         address += 4;
                         found = true;
                     }
@@ -105,7 +104,7 @@ namespace CWPortable.PowerPC
                                     e.Line = x;
 
                                 errors.AddRange(asmErrors);
-                                ppc += address.ToString("X8") + " " + r + "\r\n";
+                                ppc.Add(r);
                                 address += 4;
                                 found = true;
                                 break;
