@@ -12,6 +12,7 @@ namespace CWPortable.PowerPC
         public string Context;
         public int Line;
         public int Column;
+        public uint Address;
 
         public PPCError(string error, string context = null, int line = -1, int column = -1)
         {
@@ -41,6 +42,9 @@ namespace CWPortable.PowerPC
                 output += "Line: " + Line.ToString() + " ";
             if (Column >= 0)
                 output += "Column: " + Column.ToString() + " ";
+            if (Address != 0xFFFFFFFF)
+                output += "Address: " + Address.ToString("X8") + " ";
+
             output += "\r\n";
 
             if (Error != null)

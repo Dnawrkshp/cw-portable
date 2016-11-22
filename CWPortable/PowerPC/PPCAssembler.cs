@@ -65,6 +65,7 @@ namespace CWPortable.PowerPC
                             PPCError error = ex.Assemble(ref subLines[y]);
                             if (error != null)
                             {
+                                error.Address = 0xFFFFFFFF;
                                 error.Line = x;
                                 errors.Add(error);
                             }
@@ -98,12 +99,17 @@ namespace CWPortable.PowerPC
                         {
                             if (subLines[y].StartsWith(ins.Name + " "))
                             {
-                                // Assemble and update Line parameter of each error
+                                // Assemble and update Line/Address parameters of each error
                                 List<PPCError> asmErrors = ins.Assemble(address, subLines[y], out r);
                                 foreach (PPCError e in asmErrors)
+                                {
+                                    e.Address = address;
                                     e.Line = x;
+                                }
 
                                 errors.AddRange(asmErrors);
+
+                                r.Address = address;
                                 ppc.Add(r);
                                 address += 4;
                                 found = true;
