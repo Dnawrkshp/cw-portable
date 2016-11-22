@@ -24,6 +24,13 @@ namespace CWPortable.PowerPC
             File.WriteAllText(Path.Combine(path, "setreg.txt"), Properties.Resources.SETREG);
             File.WriteAllText(Path.Combine(path, "mr.txt"), Properties.Resources.MR);
             File.WriteAllText(Path.Combine(path, "lis.txt"), Properties.Resources.LIS);
+            File.WriteAllText(Path.Combine(path, "li.txt"), Properties.Resources.LI);
+            File.WriteAllText(Path.Combine(path, "sub.txt"), Properties.Resources.SUB);
+            File.WriteAllText(Path.Combine(path, "beq.txt"), Properties.Resources.BEQ);
+            File.WriteAllText(Path.Combine(path, "blt.txt"), Properties.Resources.BLT);
+            File.WriteAllText(Path.Combine(path, "ble.txt"), Properties.Resources.BLE);
+            File.WriteAllText(Path.Combine(path, "bgt.txt"), Properties.Resources.BGT);
+            File.WriteAllText(Path.Combine(path, "bge.txt"), Properties.Resources.BGE);
 
             if (Definitions.Extensions == null)
                 Definitions.LoadExtensions(path);

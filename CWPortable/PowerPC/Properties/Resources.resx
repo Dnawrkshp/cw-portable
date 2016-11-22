@@ -117,6 +117,47 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BEQ" xml:space="preserve">
+    <value>public static string Assemble(string[] args) {
+	byte cr = byte.Parse(args[1].Replace("cr", "").Substring(0,1));
+	return "bc 12, " + ((cr &lt;&lt; 2)|2).ToString() + " " + args[2];
+}</value>
+  </data>
+  <data name="BGE" xml:space="preserve">
+    <value>public static string Assemble(string[] args) {
+	byte cr = byte.Parse(args[1].Replace("cr", "").Substring(0,1));
+	return "bc 4, " + ((cr &lt;&lt; 2)|0).ToString() + " " + args[2];
+}</value>
+  </data>
+  <data name="BGT" xml:space="preserve">
+    <value>public static string Assemble(string[] args) {
+	byte cr = byte.Parse(args[1].Replace("cr", "").Substring(0,1));
+	return "bc 12, " + ((cr &lt;&lt; 2)|1).ToString() + " " + args[2];
+}</value>
+  </data>
+  <data name="BLE" xml:space="preserve">
+    <value>public static string Assemble(string[] args) {
+	byte cr = byte.Parse(args[1].Replace("cr", "").Substring(0,1));
+	return "bc 4, " + ((cr &lt;&lt; 2)|1).ToString() + " " + args[2];
+}</value>
+  </data>
+  <data name="BLT" xml:space="preserve">
+    <value>public static string Assemble(string[] args) {
+	byte cr = byte.Parse(args[1].Replace("cr", "").Substring(0,1));
+	return "bc 12, " + ((cr &lt;&lt; 2)|0).ToString() + " " + args[2];
+}</value>
+  </data>
+  <data name="BNE" xml:space="preserve">
+    <value>public static string Assemble(string[] args) {
+	byte cr = byte.Parse(args[1].Replace("cr", "").Substring(0,1));
+	return "bc 4, " + ((cr &lt;&lt; 2)|2).ToString() + " " + args[2];
+}</value>
+  </data>
+  <data name="LI" xml:space="preserve">
+    <value>public static string Assemble(string[] args) {
+	return "addi " +args[1] + " r0, " + args[2];
+}</value>
+  </data>
   <data name="LIS" xml:space="preserve">
     <value>public static string Assemble(string[] args) {
 	return "addis " +args[1] + " r0, " + args[2];
@@ -124,7 +165,7 @@
   </data>
   <data name="MR" xml:space="preserve">
     <value>public static string Assemble(string[] args) {
-	return "ori " +args[1] + " " + args[1] + " " + args[2].Replace(",", "");
+	return "ori " +args[1] + " " + args[2] + " 0";
 }</value>
   </data>
   <data name="SETREG" xml:space="preserve">
@@ -137,6 +178,11 @@
 		v = uint.Parse(args[2]);
 		
 	return "lis " + args[1] + " 0x" + ((v&amp;0xffff0000)&gt;&gt;16).ToString("X4") + "\r\nori " + args[1] + " " + args[1] + " 0x" + (v&amp;0xffff).ToString("X4");
+}</value>
+  </data>
+  <data name="SUB" xml:space="preserve">
+    <value>public static string Assemble(string[] args) {
+	return "subf " + args[1] + " " + args[3] + " " + args[2];
 }</value>
   </data>
 </root>

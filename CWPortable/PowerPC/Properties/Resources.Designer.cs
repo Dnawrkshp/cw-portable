@@ -62,6 +62,89 @@ namespace CWPortable.PowerPC.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to public static string Assemble(string[] args) {
+        ///	byte cr = byte.Parse(args[1].Replace(&quot;cr&quot;, &quot;&quot;).Substring(0,1));
+        ///	return &quot;bc 12, &quot; + ((cr &lt;&lt; 2)|2).ToString() + &quot; &quot; + args[2];
+        ///}.
+        /// </summary>
+        internal static string BEQ {
+            get {
+                return ResourceManager.GetString("BEQ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to public static string Assemble(string[] args) {
+        ///	byte cr = byte.Parse(args[1].Replace(&quot;cr&quot;, &quot;&quot;).Substring(0,1));
+        ///	return &quot;bc 4, &quot; + ((cr &lt;&lt; 2)|0).ToString() + &quot; &quot; + args[2];
+        ///}.
+        /// </summary>
+        internal static string BGE {
+            get {
+                return ResourceManager.GetString("BGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to public static string Assemble(string[] args) {
+        ///	byte cr = byte.Parse(args[1].Replace(&quot;cr&quot;, &quot;&quot;).Substring(0,1));
+        ///	return &quot;bc 12, &quot; + ((cr &lt;&lt; 2)|1).ToString() + &quot; &quot; + args[2];
+        ///}.
+        /// </summary>
+        internal static string BGT {
+            get {
+                return ResourceManager.GetString("BGT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to public static string Assemble(string[] args) {
+        ///	byte cr = byte.Parse(args[1].Replace(&quot;cr&quot;, &quot;&quot;).Substring(0,1));
+        ///	return &quot;bc 4, &quot; + ((cr &lt;&lt; 2)|1).ToString() + &quot; &quot; + args[2];
+        ///}.
+        /// </summary>
+        internal static string BLE {
+            get {
+                return ResourceManager.GetString("BLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to public static string Assemble(string[] args) {
+        ///	byte cr = byte.Parse(args[1].Replace(&quot;cr&quot;, &quot;&quot;).Substring(0,1));
+        ///	return &quot;bc 12, &quot; + ((cr &lt;&lt; 2)|0).ToString() + &quot; &quot; + args[2];
+        ///}.
+        /// </summary>
+        internal static string BLT {
+            get {
+                return ResourceManager.GetString("BLT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to public static string Assemble(string[] args) {
+        ///	byte cr = byte.Parse(args[1].Replace(&quot;cr&quot;, &quot;&quot;).Substring(0,1));
+        ///	return &quot;bc 4, &quot; + ((cr &lt;&lt; 2)|2).ToString() + &quot; &quot; + args[2];
+        ///}.
+        /// </summary>
+        internal static string BNE {
+            get {
+                return ResourceManager.GetString("BNE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to public static string Assemble(string[] args) {
+        ///	return &quot;addi &quot; +args[1] + &quot; r0, &quot; + args[2];
+        ///}.
+        /// </summary>
+        internal static string LI {
+            get {
+                return ResourceManager.GetString("LI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to public static string Assemble(string[] args) {
         ///	return &quot;addis &quot; +args[1] + &quot; r0, &quot; + args[2];
         ///}.
         /// </summary>
@@ -73,7 +156,7 @@ namespace CWPortable.PowerPC.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to public static string Assemble(string[] args) {
-        ///	return &quot;ori &quot; +args[1] + &quot; &quot; + args[1] + &quot; &quot; + args[2].Replace(&quot;,&quot;, &quot;&quot;);
+        ///	return &quot;ori &quot; +args[1] + &quot; &quot; + args[2] + &quot; 0&quot;;
         ///}.
         /// </summary>
         internal static string MR {
@@ -97,6 +180,17 @@ namespace CWPortable.PowerPC.Properties {
         internal static string SETREG {
             get {
                 return ResourceManager.GetString("SETREG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to public static string Assemble(string[] args) {
+        ///	return &quot;subf &quot; + args[1] + &quot; &quot; + args[3] + &quot; &quot; + args[2];
+        ///}.
+        /// </summary>
+        internal static string SUB {
+            get {
+                return ResourceManager.GetString("SUB", resourceCulture);
             }
         }
     }
